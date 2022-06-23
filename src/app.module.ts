@@ -1,20 +1,21 @@
-import { APP_INTERCEPTOR } from '@nestjs/core';
 import { Module } from '@nestjs/common';
-import { RateLimiterModule, RateLimiterInterceptor } from 'nestjs-fastify-rate-limiter';
+import { APP_GUARD } from '@nestjs/core';
+import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
 @Module({
-  imports: [RateLimiterModule.register({
-    points: 100,
-    duration: 60,
-    errorMessage: 'Too many requests',
-    keyPrefix: 'rate-limiter',
-})],
+  imports: [
+    ThrottlerModule.forRoot({
+      ttl: 60,
+      limit: 25,
+    }),
+  ],
   controllers: [AppController],
   providers: [AppService, {
-    provide: APP_INTERCEPTOR,
-    useClass: RateLimiterInterceptor,
-  }],
+    provide: APP_GUARD,
+    useClass: ThrottlerGuard
+  }
+  ],
 })
 export class AppModule {}

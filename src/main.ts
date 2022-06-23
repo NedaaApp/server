@@ -3,7 +3,6 @@ import {
   FastifyAdapter,
   NestFastifyApplication,
 } from '@nestjs/platform-fastify';
-import fastifyCors from '@fastify/cors';
 import { AppModule } from './app.module';
 
 async function bootstrap() {
