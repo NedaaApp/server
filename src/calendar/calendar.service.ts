@@ -2,12 +2,9 @@ import { CalendarDto } from 'src/dto/calendar.dto';
 import { HttpException, Injectable } from '@nestjs/common';
 import axios from 'axios';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-require('dotenv').config();
-
 @Injectable()
 export class CalendarService {
-  private baseURL = process.env.BASE_URL;
+  private baseURL = `http://api.aladhan.com/v1`;
 
   construcrQueryies(calendar: CalendarDto): string {
     let query = '?';
