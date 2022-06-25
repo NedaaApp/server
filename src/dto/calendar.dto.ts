@@ -16,7 +16,7 @@ export class CalendarDto {
   @IsNotEmpty()
   @IsLongitude()
   @Type(() => Number)
-  longtude: number;
+  longitude: number;
 
   @IsOptional()
   @IsBoolean()
@@ -25,7 +25,7 @@ export class CalendarDto {
     if (value === 'false') return false;
     return value;
   })
-  ios8601?: boolean;
+  iso8601?: boolean;
 
   @IsOptional()
   @IsBoolean()

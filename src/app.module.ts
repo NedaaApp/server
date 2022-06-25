@@ -1,7 +1,7 @@
-import { CalendarService } from './calendar/calendar.service';
 import { Module } from '@nestjs/common';
 import { APP_GUARD } from '@nestjs/core';
 import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
+import { CalendarService } from './calendar/calendar.service';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { CalendarController } from './calendar/calendar.controller';
