@@ -8,7 +8,6 @@ import { AppService } from './app.service';
 import { CalendarController } from './calendar/calendar.controller';
 import { TimezoneController } from './timezone/timezone.controller';
 import { TimezoneService } from './timezone/timezone.service';
-import { TimezoneModule } from './timezone/timezone.module';
 
 @Module({
   imports: [
