@@ -1,3 +1,4 @@
+import { CoordinatesService } from './coordinates/coordinates.service';
 import { Module } from '@nestjs/common';
 import { APP_GUARD } from '@nestjs/core';
 import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
@@ -8,6 +9,7 @@ import { AppService } from './app.service';
 import { CalendarController } from './calendar/calendar.controller';
 import { TimezoneController } from './timezone/timezone.controller';
 import { TimezoneService } from './timezone/timezone.service';
+import { CoordinatesController } from './coordinates/coordinates.controller';
 
 @Module({
   imports: [
@@ -19,7 +21,12 @@ import { TimezoneService } from './timezone/timezone.service';
       limit: 25,
     }),
   ],
-  controllers: [AppController, CalendarController, TimezoneController],
+  controllers: [
+    AppController,
+    CalendarController,
+    TimezoneController,
+    CoordinatesController,
+  ],
   providers: [
     AppService,
     CalendarService,
@@ -28,6 +35,7 @@ import { TimezoneService } from './timezone/timezone.service';
       useClass: ThrottlerGuard,
     },
     TimezoneService,
+    CoordinatesService,
   ],
 })
 export class AppModule {}
