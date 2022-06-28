@@ -1,4 +1,4 @@
-import { CalendarDto } from 'src/dto/calendar.dto';
+import { CalendarDto } from 'src/calendar/calendar.dto';
 import { HttpException, Injectable } from '@nestjs/common';
 import axios from 'axios';
 
