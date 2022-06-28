@@ -7,7 +7,7 @@ import {
   IsOptional,
 } from 'class-validator';
 
-export class CalendarDto {
+export class QueryDto {
   @IsNotEmpty()
   @IsLatitude()
   @Type(() => Number)
@@ -35,4 +35,7 @@ export class CalendarDto {
     return value;
   })
   annual?: boolean;
+
+  @IsOptional()
+  method?: string;
 }

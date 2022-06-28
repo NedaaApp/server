@@ -6,6 +6,9 @@ import { CalendarService } from './calendar/calendar.service';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { CalendarController } from './calendar/calendar.controller';
+import { TimezoneController } from './timezone/timezone.controller';
+import { TimezoneService } from './timezone/timezone.service';
+import { TimezoneModule } from './timezone/timezone.module';
 
 @Module({
   imports: [
@@ -17,7 +20,7 @@ import { CalendarController } from './calendar/calendar.controller';
       limit: 25,
     }),
   ],
-  controllers: [AppController, CalendarController],
+  controllers: [AppController, CalendarController, TimezoneController],
   providers: [
     AppService,
     CalendarService,
@@ -25,6 +28,7 @@ import { CalendarController } from './calendar/calendar.controller';
       provide: APP_GUARD,
       useClass: ThrottlerGuard,
     },
+    TimezoneService,
   ],
 })
 export class AppModule {}
