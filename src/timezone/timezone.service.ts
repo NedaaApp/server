@@ -8,8 +8,11 @@ export class TimezoneService {
   private baseURL = `http://api.aladhan.com/v1`;
 
   async getTimezone(queryDto: QueryDto): Promise<string> {
+    const currnetDateUnix = new Date().getTime() / 1000;
     const query = construcrQueryies(queryDto);
-    const response = await axios.get(`${this.baseURL}/timings${query}`);
+    const response = await axios.get(
+      `${this.baseURL}/timings/${currnetDateUnix}${query}`,
+    );
     if (response.status === 200) {
       const data = response.data;
       const timezone = data.data?.meta?.timezone;
