@@ -11,7 +11,7 @@ import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston';
 export class LoggerMiddleware implements NestMiddleware {
   constructor(
     @Inject(WINSTON_MODULE_NEST_PROVIDER)
-    private readonly logger: LoggerService,
+    private readonly logger?: LoggerService,
   ) {}
   use(req: Request, res: Response, next: NextFunction) {
     const startAt = process.hrtime();
