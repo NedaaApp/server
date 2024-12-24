@@ -13,14 +13,13 @@ export class TimezoneService {
     const response = await axios.get(
       `${this.baseURL}/timings/${currnetDateUnix}${query}`,
     );
-    if (response.status === 200) {
-      const data = response.data;
-      const timezone = data.data?.meta?.timezone;
-      if (timezone) {
-        return JSON.stringify({ timezone });
-      }
+    const data = response.data;
+    const timezone = data.data?.meta?.timezone;
 
+    if (response.status !== 200 || !timezone) {
       throw new HttpException('Error while getting data', response.status);
     }
+
+    return JSON.stringify({ timezone });
   }
 }
