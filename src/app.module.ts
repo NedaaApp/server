@@ -20,10 +20,12 @@ import { LoggerMiddleware } from './logger/logger.middleware';
     ConfigModule.forRoot({
       isGlobal: true,
     }),
-    ThrottlerModule.forRoot({
-      ttl: 60,
-      limit: 25,
-    }),
+    ThrottlerModule.forRoot([
+      {
+        ttl: 60,
+        limit: 25,
+      },
+    ]),
     WinstonModule.forRoot({
       level: 'info',
       format: winston.format.combine(
