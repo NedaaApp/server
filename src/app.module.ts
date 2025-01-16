@@ -14,6 +14,7 @@ import { TimezoneController } from './timezone/timezone.controller';
 import { TimezoneService } from './timezone/timezone.service';
 import { CoordinatesController } from './coordinates/coordinates.controller';
 import { LoggerMiddleware } from './logger/logger.middleware';
+import { PrayerTimesModule } from '@/prayer-times/prayer-times.module';
 
 @Module({
   imports: [
@@ -55,6 +56,7 @@ import { LoggerMiddleware } from './logger/logger.middleware';
         }),
       ],
     }),
+    PrayerTimesModule,
   ],
   controllers: [
     AppController,
