@@ -1,6 +1,6 @@
 import { TimezoneService } from './timezone.service';
 import { Test, TestingModule } from '@nestjs/testing';
-import { TimezoneController } from './timezone.controller';
+import { TimezoneController } from '@/timezone/timezone.controller';
 
 describe('TimezoneController', () => {
   let controller: TimezoneController;

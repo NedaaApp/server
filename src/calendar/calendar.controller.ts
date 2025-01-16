@@ -1,6 +1,6 @@
 import { Controller, Get, Query, Version } from '@nestjs/common';
 import { CalendarService } from './calendar.service';
-import { QueryDto } from 'src/dto/api-query.dto';
+import { QueryDto } from '@/dto/api-query.dto';
 
 @Controller('calendar')
 export class CalendarController {

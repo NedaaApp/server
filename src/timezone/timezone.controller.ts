@@ -1,6 +1,6 @@
 import { TimezoneService } from './timezone.service';
 import { Controller, Get, Query, Version } from '@nestjs/common';
-import { QueryDto } from 'src/dto/api-query.dto';
+import { QueryDto } from '@/dto/api-query.dto';
 
 @Controller('timezone')
 export class TimezoneController {
