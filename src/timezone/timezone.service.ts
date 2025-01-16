@@ -1,7 +1,7 @@
 import { HttpException, Injectable } from '@nestjs/common';
 import axios from 'axios';
-import { QueryDto } from 'src/dto/api-query.dto';
-import { construcrQueryies } from 'src/utils/construcrParams';
+import { QueryDto } from '@/dto/api-query.dto';
+import { constructQueries } from '@/utils/constructParams';
 
 @Injectable()
 export class TimezoneService {
@@ -9,7 +9,7 @@ export class TimezoneService {
 
   async getTimezone(queryDto: QueryDto): Promise<string> {
     const currnetDateUnix = new Date().getTime() / 1000;
-    const query = construcrQueryies(queryDto);
+    const query = constructQueries(queryDto);
     const response = await axios.get(
       `${this.baseURL}/timings/${currnetDateUnix}${query}`,
     );
