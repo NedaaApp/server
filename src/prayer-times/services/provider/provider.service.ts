@@ -12,4 +12,12 @@ export class ProviderService {
   getProviders(): PrayerTimesProvider[] {
     return this.providers;
   }
+
+  getProviderById(providerId: number | undefined): PrayerTimesProvider | null {
+    return (
+      this.getProviders().find(
+        (p: PrayerTimesProvider) => p.id === providerId,
+      ) || null
+    );
+  }
 }
