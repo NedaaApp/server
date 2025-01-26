@@ -52,17 +52,17 @@ export class AladhanService {
           monthData[i] = {
             date: day.date.timestamp,
             timings: {
-              Fajr: day.timings.Fajr,
-              Sunrise: day.timings.Sunrise,
-              Dhuhr: day.timings.Dhuhr,
-              Asr: day.timings.Asr,
-              Sunset: day.timings.Sunset,
-              Maghrib: day.timings.Maghrib,
-              Isha: day.timings.Isha,
-              Imsak: day.timings.Imsak,
-              Midnight: day.timings.Midnight,
-              Firstthird: day.timings.Firstthird,
-              Lastthird: day.timings.Lastthird,
+              fajr: day.timings.Fajr,
+              sunrise: day.timings.Sunrise,
+              dhuhr: day.timings.Dhuhr,
+              asr: day.timings.Asr,
+              sunset: day.timings.Sunset,
+              maghrib: day.timings.Maghrib,
+              isha: day.timings.Isha,
+              imsak: day.timings.Imsak,
+              midnight: day.timings.Midnight,
+              firstthird: day.timings.Firstthird,
+              lastthird: day.timings.Lastthird,
             },
           };
         }
