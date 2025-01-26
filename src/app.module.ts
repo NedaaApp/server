@@ -1,7 +1,7 @@
 import { MiddlewareConsumer, RequestMethod, NestModule } from '@nestjs/common';
 import { CoordinatesService } from './coordinates/coordinates.service';
 import { Module } from '@nestjs/common';
-import { APP_GUARD } from '@nestjs/core';
+import { APP_GUARD, APP_INTERCEPTOR } from '@nestjs/core';
 import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
 import { ConfigModule } from '@nestjs/config';
 import { WinstonModule } from 'nest-winston';
@@ -15,6 +15,7 @@ import { TimezoneService } from './timezone/timezone.service';
 import { CoordinatesController } from './coordinates/coordinates.controller';
 import { LoggerMiddleware } from './logger/logger.middleware';
 import { PrayerTimesModule } from '@/prayer-times/prayer-times.module';
+import { ResponseInterceptor } from '@/response/response.interceptor';
 
 @Module({
   imports: [
@@ -73,6 +74,10 @@ import { PrayerTimesModule } from '@/prayer-times/prayer-times.module';
     },
     TimezoneService,
     CoordinatesService,
+    {
+      provide: APP_INTERCEPTOR,
+      useClass: ResponseInterceptor,
+    },
   ],
 })
 export class AppModule implements NestModule {
