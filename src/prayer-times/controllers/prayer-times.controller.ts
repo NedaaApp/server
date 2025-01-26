@@ -11,6 +11,9 @@ import { PrayerTimesResponse } from '@/prayer-times/interfaces/prayer-times-resp
 // DTOs
 import { PrayerTimesQueryDto } from '@/prayer-times/dtos/prayer-times.dto';
 
+// Decorators
+import { ResponseMessage } from '@/response-message/response-message.decorator';
+
 @Controller({ path: 'prayer-times', version: '2' })
 export class PrayerTimesController {
   constructor(
@@ -19,6 +22,7 @@ export class PrayerTimesController {
   ) {}
 
   @Get('/')
+  @ResponseMessage('Prayer times retrieved successfully')
   async getPrayerTimes(
     @Query() query: PrayerTimesQueryDto,
   ): Promise<PrayerTimesResponse> {
@@ -33,6 +37,7 @@ export class PrayerTimesController {
   }
 
   @Get('providers')
+  @ResponseMessage('List of providers fetched successfully')
   getProviders(): PrayerTimesProvider[] {
     return this.providerService.getProviders();
   }
